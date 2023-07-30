@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+</head>
+<!-- task , category -->
+
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">(::|TASK|::)</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        </div>
+    </div>
+</nav>
+<!-- nav end -->
+
+<div class="container-fluid mt-3" id="product_body">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 p-2 ">
+            <div class="card">
+                <div class="card-header">
+                    <b>Task Manager</b>
+                </div>
+                <div class="card-body" id="order_products_body">
+
+                    <div class="row">
+                        <!-- worker dropdown  -->
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Category</label>
+                                <select class="form-control" name="category" id="category">
+                                    <option value="" selected="">Please select Category</option>
+                                    <% for(i in category){%>
+                                        <option value="<%=category[i]._id%>">
+                                            <%=category[i].name%>
+                                        </option>
+                                        <%}%>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Description</label>
+                                <input type="text" class="form-control" name="description" id="description" value=""
+                                    required placeholder="Description">
+                            </div>
+
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">DATE</label>
+                                <div class="datepicker date input-group">
+                                    <input type="text" placeholder="Choose Date" class="form-control" id="date">
+                                    <div class="input-group-append">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 p-3">
+                            <button type="button" class="btn btn-success" id="gen_task">Generate Task</button>
+                        </div>
+
+                        <hr>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="task_item">
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            language: "es",
+            autoclose: true,
+            format: "dd/mm/yyyy"
+        });
+    });
+
+</script>
+
+
+<script src="js/home.js"></script>
