@@ -1,3 +1,4 @@
+//function for creating category unlke task location.reload is used instead of creating new function to reload category
 $('#submit').click(function () {
     var category = $('#category').val();
     if (category == "") {

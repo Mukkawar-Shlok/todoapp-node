@@ -1,11 +1,12 @@
 const Task = require('../models/task');
-
+//home
 module.exports.home = function (req, res) {
     return res.render('test', {
         title: "Home"
     });
 };
 
+//to create tasks 
 module.exports.create = async function (req, res) {
     try {
         const name = req.body.name;
@@ -29,6 +30,7 @@ module.exports.create = async function (req, res) {
 };
 
 
+//to delete tasks
 module.exports.delete = function (req, res) {
     const id = req.body.id;
     console.log(req.body);

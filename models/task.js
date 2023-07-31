@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//Schema for tasks
 const taskList = new mongoose.Schema({
     description: {
         type: String,

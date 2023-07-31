@@ -1,6 +1,7 @@
 const Category = require('../models/category');
 const Task = require('../models/task');
 
+//home controller
 module.exports.home = function (req, res) {
     Category.find().then((responseCategory) => {
         return res.render('home', {
@@ -13,6 +14,7 @@ module.exports.home = function (req, res) {
     })
 };
 
+//controller to send list of tasks fot loading data it takes time so use async await
 exports.getTasks = async function (req, res) {
     try {
         const tasks = await Task.find();

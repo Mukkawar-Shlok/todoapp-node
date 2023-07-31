@@ -1,5 +1,5 @@
 const Category = require('../models/category');
-
+//home controller
 module.exports.home = function (req, res) {
     Category.find().then((responseCategory) => {
         return res.render('category', {
@@ -27,6 +27,7 @@ module.exports.create = function (req, res) {
         })
 };
 
+//controller for deleting Category
 module.exports.delete = function (req, res) {
     console.log(req.body.id);
     const id = req.body.id;

@@ -1,4 +1,4 @@
-
+//to genrate task
 $('#gen_task').click(function () {
     var categoryId = $('#category').val();
     var category = $('#category option:selected').text().trim();
@@ -41,8 +41,10 @@ $('#gen_task').click(function () {
     }
 
 });
+//show tasks
 showTask();
 
+//function for showing tasks
 function showTask() {
     // Make an AJAX request using the Fetch API
     fetch('/tasks')
@@ -54,12 +56,15 @@ function showTask() {
             return response.json();
         })
         .then((data) => {
+            //if we get data
             data = data.data;
+            //empty the div
             $('#task_item').empty();
             var html = '';
             for (let i = 0; i < data.length; i++) {
                 html += '<tr>' + '<td>' + (parseInt(i) + 1) + '</td>' + '<td>' + data[i].description + '</td>' + '<td>' + data[i].date + '</td>' + '<td><a type="button" href="#" class="btn btn-success">' + data[i].Category + '</a>' + '</td>' + '<td><button type="button" data="' + data[i]._id + '" class="btn btn-danger item-delete">Delete</button>' + '</td>' + '</tr>';
             }
+            //append the genrated html
             $('#task_item').html(html);
         })
         .catch((error) => {
@@ -69,7 +74,7 @@ function showTask() {
 }
 
 
-
+//for deleting task
 $('#task_item').on('click', '.item-delete', function () {
     var taskId = $(this).attr('data');
     $.ajax({
@@ -79,13 +84,13 @@ $('#task_item').on('click', '.item-delete', function () {
             id: taskId
         },
         success: function (response) {
-            // Handle successful response 
+            //successful response 
             // console.log(response);
-
+            //aftre deleting task reload tasks
             showTask();
         },
         error: function (error) {
-            // Handle error response 
+            //error response 
             console.error(error);
         }
     });
