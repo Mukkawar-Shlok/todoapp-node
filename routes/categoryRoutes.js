@@ -4,7 +4,7 @@ const router = express.Router();
 
 const categoryController = require('../controllers/categoryController');
 
-router.get('/', categoryController.Chome);
+router.get('/', categoryController.home);
 router.post('/', categoryController.create);
 router.delete('/', categoryController.delete);
 module.exports = router;

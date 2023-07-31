@@ -1,9 +1,15 @@
 const Category = require('../models/category');
 
-module.exports.Chome = function (req, res) {
-    return res.render('test', {
-        title: "Home"
-    });
+module.exports.home = function (req, res) {
+    Category.find().then((responseCategory) => {
+        return res.render('category', {
+            title: "Category Home",
+            category: responseCategory
+        });
+    }).catch((err) => {
+        console.log('Failed to fetch category ', err);
+        return res.status(500).json({ error: 'Failed to fetch category' });
+    })
 };
 
 //controller for creating category
