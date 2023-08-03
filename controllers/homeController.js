@@ -3,6 +3,8 @@ const Task = require('../models/task');
 
 //home controller
 module.exports.home = function (req, res) {
+    console.log(req.cookies);
+    res.cookie('user_id', 15);
     Category.find().then((responseCategory) => {
         return res.render('home', {
             title: "TASK MANAGER",

@@ -13,41 +13,9 @@
 
 <body>
 
+    <%- include('_header');%>
 
-    <!-- card for category -->
-    <div class="row d-flex justify-content-center mt-2">
-        <div class="col-8">
-            <!-- input field -->
-            <!-- <div class="card"> -->
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Category</span>
-                </div>
-                <input type="text" class="form-control" id="category" aria-label="Category Name"
-                    aria-describedby="inputGroup-sizing-default">
-                <button type="button" class="btn btn-outline-success m-1" id="submit">ADD</button>
-            </div>
-            <!-- </div> -->
-
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center mt-2 ">
-        <div class="col-8">
-            <div class="card">
-                <div class="card-head text-center">
-                    <h3>Category</h3>
-                </div>
-                <ul class="list-group">
-
-                    <% for(i in category){%>
-                        <li class="list-group-item">
-                            <%= category[i].name%>
-                        </li>
-                        <%}%>
-                </ul>
-            </div>
-        </div>
-    </div>
+        <%-body%>
 
 </body>
 
