@@ -11,6 +11,7 @@ router.get('/', homeController.home);
 router.get('/sign-up', userController.signup);
 router.get('/log-in', userController.login);
 router.post('/users/create', userController.create);
+router.post('/users/create-session', userController.createSession);
 
 //tasks for loading
 router.get('/tasks', homeController.getTasks);
